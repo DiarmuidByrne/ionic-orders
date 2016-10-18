@@ -39,6 +39,15 @@ angular.module('OnceOffApp', ['ionic', 'OnceOffApp.controllers'])
         templateUrl: 'templates/dashboard.html'
       }
     }
+  })
+  .state('app.collections', {
+    url: '/collections',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/collections.html',
+        controller: 'CollectionsCtrl'
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/dashboard');

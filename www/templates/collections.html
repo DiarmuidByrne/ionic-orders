@@ -1,0 +1,6 @@
+<ion-view view-title="Collections">
+  <ion-content class="sidebar">
+    <img ng-repeat="image in collections" ui-sref="app.{{image.page}}"
+    class="img-collections" ng-src="{{image.src}}"/>
+  </ion-content>
+</ion-view>

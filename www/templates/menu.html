@@ -1,6 +1,6 @@
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
-    <ion-nav-bar class="bar-dark">
+    <ion-nav-bar class="menu-navbar">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
@@ -9,19 +9,24 @@
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
+    <ion-content class="sidebar"></ion-content>
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
-    <ion-header-bar class="bar-dark">
-      <h1 class="title">Menu</h1>
-    </ion-header-bar>
-    <ion-content>
+    <ion-content class="sidebar">
+      <img class="sidebar-image" src="img/Logos/Logo.png"/>
       <ion-list>
-        <ion-item class="text text-center" menu-close ui-sref="app.dashboard">
+        <ion-item title="collections" class='sidebar' ng-class="{selected: sidebar selected}" ng-click="setActive('collections')" menu-close ui-sref="app.collections">
+          Collections
+        </ion-item>
+        <ion-item title="dashboard" class="sidebar" menu-close ui-sref="app.dashboard">
           Dashboard
         </ion-item>
       </ion-list>
+      <ion-item title="login" class="footer" menu-close ui-sref="app.collections">
+          Login
+      </ion-item>
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>

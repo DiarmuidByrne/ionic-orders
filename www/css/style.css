@@ -1,1 +1,141 @@
-/* Empty. Add your own CSS if you like */
+.sidebar {
+	background-color: #252525 !important;
+	color: #E6E7E7;
+	border-color: #252525;
+	margin-top: -2px;
+}
+
+.footer {
+	background-color: #252525 !important;
+	color: #E6E7E7;
+    border: 0px;
+    vertical-align: bottom;
+    position: inherit !important;
+}
+
+.sidebar .item:hover {
+	background-color: #49494A !important;
+}
+
+.list .bottom {
+	vertical-align: bottom !important;
+}
+.sidebar .selected {
+  border-left: thick solid gold;
+  text-indent: -5px;
+}
+
+.sidebar .item-content, .sidebar .item, .sidebar .item-complex {
+background-color: transparent !important;
+}
+
+
+.login-form {
+	vertical-align: bottom !important;
+}
+
+.menu-list {
+  border-color: #ddd;
+  background-color: #fff;
+  color: #444;
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin: -1px;
+  padding: 16px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 16px; }
+
+.sidebar .header {
+  background-color: #252525 !important;
+  color: #E6E7E7;
+  border-color: #252525;
+}
+
+.sidebar-image {
+  display:block !important;
+  max-width:100% !important;
+  height:auto !important;
+}
+
+.img {
+  display:block !important;
+  max-width:100% !important;
+  height:auto !important;
+  border-style: solid;
+  border-width: thin;
+  border-color: lightgray;
+  margin-left: auto;
+  margin-right: auto;
+}
+.img-collections {
+  display:block !important;
+  max-width:100% !important;
+  margin: -3px;
+  height:auto !important;
+}
+
+.main-body {
+	background-color: #252525;
+	color: #E6E7E7;
+}
+
+.main-button {
+	background-color: #3D3E3D;
+	color: #E6E7E7;
+}
+
+.menu-navbar {
+	background-color: #49494A;
+    border: 0px;
+	color: #E6E7E7;
+    text-align: center;
+	white-space: normal;
+	font-size: 22px;
+    top: 0;
+	right: 0;
+	left: 0;
+	z-index: 0;
+	min-width: 0px;
+}
+
+.menu-navbar .item-content {
+background-color: transparent !important;
+}
+
+  .bar .button, .bar button {
+    color: #E6E7E7;
+  }
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px;
+  width: 100%; }
+
+  .col {
+    background-color: #252525;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    border-style: solid;
+    border-width: thin;
+    border-color: darkgray;
+    display: block;
+    padding: 15px;
+    margin: 3px;
+    width: 100%;
+  }
+
+.product-price {
+  color: white;
+}
+
