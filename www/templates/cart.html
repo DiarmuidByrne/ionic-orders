@@ -1,0 +1,30 @@
+<ion-view view-title="Cart">
+  <ion-content class="sidebar">
+    <!-- List showing each item in cart object -->
+    <ul ng-show="showCart" class="list">
+      <li class="product-list" ng-click="viewProduct({{product.id}})" ng-repeat="(id, product) in cart">
+          <img src="{{product.images[0].src}}" class="product-img"/>
+          <td class="product-text">{{product.name}}</td>
+          <td class="price"> {{product.price_html | removeHTMLTags}}</td>
+      </li>
+    </ul>
+
+    <!-- Div shown when no items are in cart -->
+    <div ng-hide="showCart" class="cart-">
+        <h2 class="empty-cart">Nothing in the cart</h2>
+        <button class="button button-block button-gold" ng-click="goToCollections()" type="button">Shop Collections</button>
+    </div>
+
+    <!-- Total price and checkout button-->
+    <ion-footer-bar style="background: #49494A;">
+      <!--<div style="display: block; text-align: center; ">-->
+      <div class="col"></div>
+        <button class="button button-dark cart-clear" ng-click="clearCart()" item-height="20px">Clear Cart</button>
+      <div class="col-offset-25"></div>
+      <div class="col"> 
+        <button class="button button-dark cart-checkout" item-height="20px">Checkout</button>
+      </div>
+      <div class="col"></div>
+    </ion-footer-bar>
+  </ion-content>
+</ion-view>

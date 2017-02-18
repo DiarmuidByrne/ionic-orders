@@ -1,11 +1,13 @@
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
-    <ion-nav-bar class="menu-navbar">
+    <ion-nav-bar align-title="center" class="menu-navbar">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
       <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        <button class="button button-icon button-clear ion-navicon"
+         data-ng-hide="$state.includes('app.login')" menu-toggle="left">
+         <!--ng-hide="hideMenuBtn" data-ng-show="$state.includes('about.list')" menu-toggle="left">-->
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
@@ -17,15 +19,17 @@
     <ion-content class="sidebar">
       <img class="sidebar-image" src="img/Logos/Logo.png"/>
       <ion-list>
-        <ion-item title="collections" class='sidebar' ng-class="{selected: sidebar selected}" ng-click="setActive('collections')" menu-close ui-sref="app.collections">
+        <ion-item title="collections" class='sidebar' ui-sref-active="active" menu-close ui-sref="app.collections">
           Collections
         </ion-item>
-        <ion-item title="dashboard" class="sidebar" menu-close ui-sref="app.dashboard">
-          Dashboard
+        <ion-item title="cart" class="sidebar" ui-sref-active="active" menu-close ui-sref="app.cart">
+          Cart
         </ion-item>
       </ion-list>
-      <ion-item title="login" class="footer" menu-close ui-sref="app.collections">
-          Login
+      <ion-item title="profile" class="sidebar" ui-sref-active="active" ng-click="hideMenuButton()" menu-close ui-sref="app.login">
+        Profile
+        <img class="img-circle" ng-src="https://onceoff-ub7wlxwsenedmhyc.netdna-ssl.com/wp-content/uploads/ultimatemember/{{currentUser[0].id}}/profile_photo.jpg" />
+
       </ion-item>
     </ion-content>
   </ion-side-menu>

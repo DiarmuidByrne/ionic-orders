@@ -2,13 +2,18 @@
 <widget id="com.ionicframework.dzbionic184450" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>dzb-ionic</name>
   <description>
-        An Ionic Framework and Cordova project.
+        OnceOff Mobile is an application to allow to authenticated users of 
+        onceoff.com, the OnceOff Private Members Group Website to
+         login and buy products that are available on the website.
     </description>
-  <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
+  <author email="diarbbyrne@gmail.com">
+      Diarmuid Byrne
     </author>
   <content src="index.html"/>
   <access origin="*"/>
+  <!--<access launch-external="true" origin="mailto:*" />
+  <access launch-external="true" origin="tel:*" />-->
+
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
@@ -16,6 +21,7 @@
   <preference name="FadeSplashScreenDuration" value="2000"/>
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
+  <preference name="orientation" value="portrait" />
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>

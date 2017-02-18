@@ -1,0 +1,13 @@
+<ion-view view-title="{{selectedProduct.name}}">
+  <ion-content class="sidebar">
+    <ion-scroll class="images-list" direction="x" zooming="true" >
+      <div class="product-images" ng-repeat="image in selectedProduct.images">
+        <img class="product-image" src="{{image.src}}">
+      </div>
+    </ion-scroll>
+    <div style="padding-top: 10px;" ng-bind-html="productDesc"></div>
+    <button ng-click="window.open('mailto:email@example.com', '_system')">Contact OnceOff</button>
+    <button ng-hide="noPrice" ng-click="addToCart()">Add to Cart</button>
+
+  </ion-content>
+</ion-view>

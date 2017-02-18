@@ -1,0 +1,15 @@
+{
+  "name": "oauth-1.0a",
+  "homepage": "https://github.com/ddo/oauth-1.0a",
+  "version": "2.0.0",
+  "_release": "2.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.0.0",
+    "commit": "50dd716fe43610dd59a8b657ea65608dee8cf20d"
+  },
+  "_source": "https://github.com/ddo/oauth-1.0a.git",
+  "_target": "^2.0.0",
+  "_originalSource": "oauth-1.0a",
+  "_direct": true
+}

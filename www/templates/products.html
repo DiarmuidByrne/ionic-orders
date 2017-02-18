@@ -1,0 +1,15 @@
+<ion-view view-title="{{category}}">
+  <ion-content class="sidebar">
+    <ul class="list">
+      <li class="product-list" ng-click="setProduct({{product.id}})" ng-repeat="product in products">
+          <img src="{{product.images[0].src}}" class="product-img"/>
+          <td class="product-text">{{product.name}}</td>
+          <td class="price"> {{product.price_html | removeHTMLTags}}</td>
+      </li>
+    </ul>
+    <footer>
+      <button item-height="20px" ng-click="changePage('0')" ng-show="pagination">Back</button>
+      <button item-height="20px" ng-click="changePage('1')" ng-show="pagination">Next</button>
+    </footer>
+  </ion-content>
+</ion-view>

@@ -1,15 +1,12 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
-angular.module('OnceOffApp', ['ionic', 'OnceOffApp.controllers'])
+angular.module('OnceOffApp', ['ionic', 'ngCordova', 
+'OnceOffApp.controllers', 'OnceOffApp.controllers.collections', 
+'OnceOffApp.controllers.login', 'OnceOffApp.controllers.products',
+'OnceOffApp.controllers.productView', 'OnceOffApp.controllers.stripe', 'OnceOffApp.controllers.cart'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
+
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
@@ -24,21 +21,11 @@ angular.module('OnceOffApp', ['ionic', 'OnceOffApp.controllers'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-
     .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'MainController'
-  })
-
-  .state('app.dashboard', {
-    url: '/dashboard',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/dashboard.html'
-      }
-    }
   })
   .state('app.collections', {
     url: '/collections',
@@ -48,7 +35,59 @@ angular.module('OnceOffApp', ['ionic', 'OnceOffApp.controllers'])
         controller: 'CollectionsCtrl'
       }
     }
+  })
+  .state('app.dashboard', {
+    url: '/dashboard',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/dashboard.html'
+      }
+    }
+  })
+  .state('app.login', {
+    url: '/login',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/login.html',
+        controller: 'LoginCtrl'
+      }
+    }
+  })
+  .state('app.products', {
+    url: '/products/:id/:category',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/products.html',
+        controller: 'ProductsCtrl'
+      }
+    }
+  })
+  .state('app.product', {
+    url: '/product',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/product.html',
+        controller: 'ProductViewCtrl'
+      }
+    }
+  })
+  .state('app.cart', {
+    url: '/cart',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/cart.html',
+        controller: 'CartCtrl'
+      }
+    }
   });
+
+  var defaultPage = '/app/login';
+  var currentUser = window.localStorage.getItem('CurrentUser');
+
+  if(currentUser != null) {
+    defaultPage = '/app/collections'
+    currentUser = JSON.parse(currentUser)
+  }
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/dashboard');
+  $urlRouterProvider.otherwise(defaultPage);
 });

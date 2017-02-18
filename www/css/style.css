@@ -5,6 +5,14 @@
 	margin-top: -2px;
 }
 
+.img-circle {
+    border-radius: 50%;
+    position: absolute;
+max-height:100%;
+    right: 5px;
+    top: 0px;
+}
+
 .footer {
 	background-color: #252525 !important;
 	color: #E6E7E7;
@@ -18,21 +26,13 @@
 }
 
 .list .bottom {
-	vertical-align: bottom !important;
-}
-.sidebar .selected {
-  border-left: thick solid gold;
-  text-indent: -5px;
+  height: 100%;
 }
 
 .sidebar .item-content, .sidebar .item, .sidebar .item-complex {
 background-color: transparent !important;
 }
 
-
-.login-form {
-	vertical-align: bottom !important;
-}
 
 .menu-list {
   border-color: #ddd;
@@ -45,7 +45,35 @@ background-color: transparent !important;
   padding: 16px;
   border-width: 1px;
   border-style: solid;
-  font-size: 16px; }
+  font-size: 16px; 
+}
+
+.empty-cart {
+  color: black !important;
+  vertical-align: middle; 
+  padding-top: 70%;
+  padding-bottom: 15%;
+  text-align: center;
+    text-shadow:
+    -1px -1px 0 #252525,
+    -1px 1px 0 gray,
+    1px 1px 0 #252525;
+}
+
+.cart-checkout {
+  background: #B4A460 !important;
+}
+
+.button-gold {
+  background-color: #B4A460;
+  color: #fff;
+}
+.sidebar.active {
+  border-left: thick solid #B4A460 !important;
+  border-top-color: #252525 !important;
+  border-bottom-color: #252525 !important;
+  text-indent: -5px;
+}
 
 .sidebar .header {
   background-color: #252525 !important;
@@ -53,28 +81,101 @@ background-color: transparent !important;
   border-color: #252525;
 }
 
+.item.item-input {
+  color: white !important;
+
+}
 .sidebar-image {
   display:block !important;
   max-width:100% !important;
   height:auto !important;
 }
 
+h1, h2, h3, h4, h5, h6{
+  color: #B4A460 !important;
+}
+
+p strong {
+  padding-top: 30px;
+  color: #F3F3F3;
+  text-decoration-line: underline;
+}
+
 .img {
-  display:block !important;
-  max-width:100% !important;
-  height:auto !important;
+  display: block !important;
+  max-width: 100% !important;
+  height: auto !important;
   border-style: solid;
   border-width: thin;
   border-color: lightgray;
   margin-left: auto;
   margin-right: auto;
 }
+
 .img-collections {
   display:block !important;
   max-width:100% !important;
   margin: -3px;
   height:auto !important;
 }
+
+.product-image {
+  float: left;
+  padding-top: 5px;
+  padding: 5px;
+  height: 240px;
+}
+
+.product-images {
+  display: inline-block;
+}
+
+.product-img {
+  float: left;
+  width: 50% !important;
+  vertical-align: middle;
+  padding-top: 5px;
+  padding-right: 3px;
+  height: 150px;
+}
+
+.images-list{
+  position: relative;
+    max-height: 250px;
+    width: 350px;
+    white-space: nowrap;
+}
+
+
+.product-list {
+  display:inherit !important;
+  border: solid;
+  border-width: 1px 0px 0px 0px !important;
+  border-color: #666 !important;
+  max-height: 155px;
+  padding-left: 4px;
+  vertical-align: middle;
+  height:180px !important;
+}
+
+.price {
+  color: yellow;  
+}
+
+.product-text {
+  display: block;
+  padding-top: 5px;
+  max-width: 10%;
+  color: lightgray;
+}
+
+.row.row-top {
+    min-height: 60vh !important;
+}
+
+/*.row-bottom {
+    padding-top: 15% !important;
+}*/
 
 .main-body {
 	background-color: #252525;
@@ -88,51 +189,13 @@ background-color: transparent !important;
 
 .menu-navbar {
 	background-color: #49494A;
-    border: 0px;
+  border: 0px;
 	color: #E6E7E7;
-    text-align: center;
-	white-space: normal;
 	font-size: 22px;
-    top: 0;
-	right: 0;
-	left: 0;
-	z-index: 0;
-	min-width: 0px;
-}
-
-.menu-navbar .item-content {
-background-color: transparent !important;
 }
 
   .bar .button, .bar button {
     color: #E6E7E7;
-  }
-
-.row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 5px;
-  width: 100%; }
-
-  .col {
-    background-color: #252525;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -moz-box-flex: 1;
-    -moz-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    border-style: solid;
-    border-width: thin;
-    border-color: darkgray;
-    display: block;
-    padding: 15px;
-    margin: 3px;
-    width: 100%;
   }
 
 .product-price {

@@ -1,0 +1,21 @@
+<ion-view view-title="Login">
+  <ion-content class="sidebar">
+    <grid>
+      <form name="frmLogin" style="min-height: 100%;" ng-submit="login()">
+        <div class="row row-top">
+          <img class="sidebar-image" src="img/Logos/Logo.png"/>
+        </div>
+        <div style="position: static; bottom: 0px; width: 100%">
+          <label class="item item-input">
+            <input class="item item-input" type="text" placeholder="Username" ng-model="loginData.username" required/>
+          </label>
+          <label class="item item-input">
+            <input class="item item-input" type="password" placeholder="Password" ng-model="loginData.password" required/>
+          </label>
+          <button class="button button-block button-dark" ng-disabled="frmLogin.$invalid" type="submit">Log in</button>
+          <button class="button button-block button-gold" ng-disabled="frmLogin.$invalid" type="button">Register</button>
+        </div>
+      </form>
+    </grid>
+  </ion-content>
+</ion-view>
