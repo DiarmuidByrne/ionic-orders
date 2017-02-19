@@ -1,8 +1,9 @@
 
-angular.module('OnceOffApp', ['ionic', 'ngCordova', 
-'OnceOffApp.controllers', 'OnceOffApp.controllers.collections', 
+angular.module('OnceOffApp', ['ionic', 'ngCordova',
+'OnceOffApp.controllers', 'OnceOffApp.controllers.collections',
 'OnceOffApp.controllers.login', 'OnceOffApp.controllers.products',
-'OnceOffApp.controllers.productView', 'OnceOffApp.controllers.stripe', 'OnceOffApp.controllers.cart'])
+'OnceOffApp.controllers.productView', 'OnceOffApp.controllers.stripe', 'OnceOffApp.controllers.cart',
+'OnceOffApp.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -90,4 +91,33 @@ angular.module('OnceOffApp', ['ionic', 'ngCordova',
   }
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise(defaultPage);
-});
+})
+
+.config(['$httpProvider', function($httpProvider) {
+  var user = JSON.parse(window.localStorage.getItem('CurrentUser'));
+
+  if (user != null) {
+    $httpProvider.interceptors.push(['$q', '$location', function($q, $location) {
+      return {
+        'request': function(config) {
+
+          config.headers = config.headers || {};
+          //add the Authorization header for each subsequent request
+          if (user[0].token && config.headers.Authorization == null && config.url.indexOf('https://api.stripe.com/v1/') == -1) {
+            config.headers.Authorization = 'Bearer ' + user[0].token;
+          }
+          return config;
+        }
+      };
+    }]);
+  } else {
+    return {
+      'request': function(config) {
+        config.headers = config.headers || {};
+        config.headers.Authorization = null;
+
+        return config;
+      }
+    }
+  }
+}]);

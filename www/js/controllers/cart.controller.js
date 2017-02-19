@@ -1,13 +1,16 @@
 // Populates list once when page is loaded
 angular.module('OnceOffApp.controllers.cart', [])
-.controller('CartCtrl', function( $rootScope, $scope, $state, $ionicHistory, $ionicPopup ) {
+.controller('CartCtrl', function( $rootScope, $scope, $state, $ionicHistory, $ionicPopup, CartService ) {
     $scope.showCart = false;
     //Populate cart dictionary with saved items (If any)
     var cartObj = window.localStorage.getItem('Cart');
-    if (cartObj != null) {
-        $scope.cart = JSON.parse(cartObj);
-        console.log(JSON.stringify($scope.cart));
-    }
+    $scope.cart = CartService.getCart();
+    console.log($scope.cart);
+
+    // if (cartObj != null) {
+    //     $scope.cart = JSON.parse(cartObj);
+    //     console.log(JSON.stringify($scope.cart));
+    // }
 
     // Add all cart items to page
     if ($scope.cart != null) {
@@ -15,7 +18,7 @@ angular.module('OnceOffApp.controllers.cart', [])
     }
 
     $scope.clearCart = function() {
-        console.log("Clearing");       
+        console.log("Clearing");
         // A confirm dialog
         var confirmPopup = $ionicPopup.confirm({
             title: 'Clear Cart?',
@@ -23,7 +26,7 @@ angular.module('OnceOffApp.controllers.cart', [])
         });
 
         confirmPopup.then(function(res) {
-            console.log("Cleared");       
+            console.log("Cleared");
             window.localStorage.removeItem('Cart');
             $scope.showCart = false;
             $scope.cart = null;
@@ -45,5 +48,5 @@ angular.module('OnceOffApp.controllers.cart', [])
             if(product.id == id) $rootScope.currentProduct = product;
         });
         $state.go('app.product');
-    }   
+    }
 })

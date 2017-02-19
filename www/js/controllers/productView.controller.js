@@ -1,6 +1,6 @@
 angular.module('OnceOffApp.controllers.productView', [])
 
- .controller('ProductViewCtrl', function($rootScope, $scope, $sce) {
+ .controller('ProductViewCtrl', function($rootScope, $scope, $sce, CartService) {
     // Get objects in cart if any exist
     var cartObj = window.localStorage.getItem('Cart');
     var cartDict = {}
@@ -22,15 +22,16 @@ angular.module('OnceOffApp.controllers.productView', [])
 
     $scope.addToCart = function() {
         console.log("Selected product id: " + $scope.selectedProduct.id);
-
-        if (!($scope.selectedProduct.id in cartDict)) {
-            cartDict[$scope.selectedProduct.id] = $scope.selectedProduct;
-            console.log($scope.selectedProduct.id + " id added to cart");
-            console.log("$scope.cartDict: " + JSON.stringify(cartDict));
-            window.localStorage.setItem('Cart', JSON.stringify(cartDict));
-        } else {
-            console.log("Already added");
-        }
+        CartService.addToCart($scope.selectedProduct);
+        // if (!($scope.selectedProduct.id in cartDict)) {
+        //     cartDict[$scope.selectedProduct.id] = $scope.selectedProduct;
+        //     CartService.addToCart($scope.selectedProduct);
+        //     // console.log($scope.selectedProduct.id + " id added to cart");
+        //     // console.log("$scope.cartDict: " + JSON.stringify(cartDict));
+        //     window.localStorage.setItem('Cart', JSON.stringify(cartDict));
+        // } else {
+        //     console.log("Already added");
+        // }
     }
  })
 
