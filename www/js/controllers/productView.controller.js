@@ -16,19 +16,17 @@ angular.module('OnceOffApp.controllers.productView', [])
     $scope.productDesc = $scope.productDesc ? String($scope.productDesc).replace('target="_blank"', '') : '';
 
     if($scope.selectedProduct.price > 0) {
-        console.log("False: " + $scope.selectedProduct.price);
         $scope.noPrice = false;
     }
 
     $scope.addToCart = function() {
-        console.log("Selected product id: " + $scope.selectedProduct.id);
 
         if (!($scope.selectedProduct.id in cartDict)) {
             cartDict[$scope.selectedProduct.id] = $scope.selectedProduct;
-            console.log($scope.selectedProduct.id + " id added to cart");
-            console.log("$scope.cartDict: " + JSON.stringify(cartDict));
             window.localStorage.setItem('Cart', JSON.stringify(cartDict));
+            $scope.$apply();
         } else {
+            
             console.log("Already added");
         }
     }
